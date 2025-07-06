@@ -94,3 +94,6 @@ nodemon server.js
 
 To download your Result PDF
 npm install html2pdf.js
+
+To use the @fortawesome icons you're importing, you need to install the following Font Awesome packages via npm
+npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-brands-svg-icons @fortawesome/react-fontawesome
