@@ -90,3 +90,7 @@ MONGODB_URI=your_mongodb_connection_string
 Start backend server:
 nodemon server.js
 (If nodemon is not installed globally, run npm install -g nodemon)
+
+
+To download your Result PDF
+npm install html2pdf.js
