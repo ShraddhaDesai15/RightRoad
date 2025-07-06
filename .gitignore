@@ -1,10 +1,5 @@
-# Ignore node modules
-node_modules/
-# Ignore .env file
-.env
-# Ignore build files (if using React build)
-dist/
-build/
-# IDE configs
-.vscode/
-.DS_Store
+node_modules/         # Prevents pushing heavy dependency folders
+.env                  # Keeps sensitive Firebase & MongoDB keys private
+dist/ or build/       # Ignores Vite/React build output
+.vscode/              # Ignores VS Code workspace settings
+.DS_Store             # macOS metadata file (safe to ignore)
