@@ -1,4 +1,4 @@
-# Node and dependencies
+# Node.js dependencies
 node_modules/
 backend/node_modules/
 frontend/my-app/node_modules/
@@ -11,6 +11,7 @@ frontend/my-app/.env
 # Build output
 dist/
 build/
+frontend/my-app/dist/
 
 # OS & IDE
 .DS_Store
