@@ -1,0 +1,153 @@
+.testpage-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  padding: 16px;
+  overflow-y: auto;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.question-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.question-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  font-weight: bold;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.question-num.answered {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.timer {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #d9534f;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  padding: 20px;
+
+}
+
+.main-area h1 {
+  margin-bottom: 20px;
+}
+
+.question-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+    padding-left: 200px;
+}
+
+.pagination {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  border-top: 1px solid #ccc;
+}
+
+.submit-btn-inline {
+  padding: 8px 16px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.submit-btn-inline.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Custom Alert Modal */
+.custom-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.custom-alert-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.custom-alert-box h2 {
+  margin-bottom: 10px;
+  color: #d9534f;
+}
+
+.custom-alert-box p {
+  margin-bottom: 20px;
+}
+
+.alert-buttons button {
+  margin: 0 10px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.alert-buttons button:first-child {
+  background-color: #6c757d;
+  color: white;
+}
+
+.alert-buttons button:last-child {
+  background-color: #dc3545;
+  color: white;
+}

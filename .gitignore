@@ -1,0 +1,10 @@
+# Ignore node modules
+node_modules/
+# Ignore .env file
+.env
+# Ignore build files (if using React build)
+dist/
+build/
+# IDE configs
+.vscode/
+.DS_Store

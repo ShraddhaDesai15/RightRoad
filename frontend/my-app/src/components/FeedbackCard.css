@@ -1,0 +1,26 @@
+.feedback-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.feedback-card h3 {
+  margin: 0 0 0.5rem;
+}
+
+.feedback-card p {
+  margin-bottom: 0.5rem;
+}
+
+.feedback-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.feedback-rating {
+  color: #f39c12;
+}

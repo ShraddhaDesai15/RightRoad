@@ -1,0 +1,78 @@
+/* src/Pages/TestReport.css */
+.report-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.summary {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.highlight-stream {
+  font-weight: bold;
+  color: #007bff;
+  font-size: 20px;
+}
+
+.progress-section {
+  margin-bottom: 30px;
+}
+
+.btn.primary {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn.primary:hover {
+  background-color: #0056b3;
+}
+
+.report-container {
+  max-width: 700px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.stream-box {
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  background-color: #f0f8ff;
+  font-size: 18px;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.highlight-stream {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #007bff;
+}
+
+.progress-section {
+  margin: 40px 0;
+}
+
+.btn.primary {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}

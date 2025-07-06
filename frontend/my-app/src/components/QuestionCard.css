@@ -1,0 +1,46 @@
+.question-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 24px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+  width: 100%;
+  max-width: 700px;
+}
+
+.question-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.option-button {
+  background-color: #f9f9f9;
+  color: #444;
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.option-button:hover {
+  background-color: #eee;
+}
+
+.option-button.selected {
+  background-color: #4caf50;
+  color: white;
+  border-color: #388e3c;
+}
