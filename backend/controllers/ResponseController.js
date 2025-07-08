@@ -5,6 +5,7 @@ const autoCleanupIfNeeded = require("../Cleanup"); // ✅ Make sure the file is 
 // 🔽 Flatten all questions into a flat array for scoring
 const flattenQuestions = () => {
   const flatList = [];
+  
   for (const [stream, questions] of Object.entries(questionsData)) {
     for (const q of questions) {
       flatList.push({
@@ -18,10 +19,11 @@ const flattenQuestions = () => {
   return flatList;
 };
 
-// 🧠 Score regular and compatibility questions
+// 🧠 Score regular and compatibility questions with custom logic
 const evaluateStream = (responses, flatQuestions) => {
   const scores = { Science: 0, Commerce: 0, Arts: 0 };
   const compatibility = { Science: 0, Commerce: 0, Arts: 0 };
+  
   const normalize = (str) => String(str).trim().toLowerCase();
 
   for (const r of responses) {
@@ -30,7 +32,8 @@ const evaluateStream = (responses, flatQuestions) => {
 
     // ✅ Regular MCQs with correct answers
     if (qObj.answer) {
-      const match = normalize(r.selected) === normalize(qObj.answer);
+      const match = normalize(qObj.answer).includes(normalize(r.selected));
+
       if (match) {
         scores[qObj.stream]++;
         console.log(`✅ ${qObj.stream} +1 for: "${qObj.question}"`);
@@ -58,14 +61,26 @@ const evaluateStream = (responses, flatQuestions) => {
     Arts: scores.Arts + compatibility.Arts,
   };
 
-  const recommendedStream = Object.entries(totalScores).reduce(
-    (max, [stream, score]) => (score > max.score ? { stream, score } : max),
-    { stream: null, score: -1 }
-  ).stream;
+  const values = Object.values(totalScores);
+  const maxScore = Math.max(...values);
+
+  // 🟡 If all scores are 0, user hasn’t attempted
+  const allZero = values.every((v) => v === 0);
+  if (allZero) {
+    return {
+      scores: totalScores,
+      recommendedStream: "Please attempt the test.",
+    };
+  }
+
+  // 🔁 Streams with equal top score
+  const topStreams = Object.entries(totalScores)
+    .filter(([_, score]) => score === maxScore)
+    .map(([stream]) => stream);
 
   return {
     scores: totalScores,
-    recommendedStream,
+    recommendedStream: topStreams.length === 1 ? topStreams[0] : topStreams,
   };
 };
 
@@ -81,7 +96,7 @@ const submitResponse = async (req, res) => {
     const response = new Response({ answers: responses });
     await response.save();
 
-    // 🧹 Auto-cleanup if disk size > 450MB
+    // 🧹 Auto-cleanup if disk size > threshold
     await autoCleanupIfNeeded();
 
     // 🧠 Evaluate result
@@ -100,4 +115,3 @@ const submitResponse = async (req, res) => {
 };
 
 module.exports = { submitResponse };
-

@@ -1,8 +1,10 @@
+const mongoose = require("mongoose");
 const Response = require("./models/Response");
 
 async function autoCleanupIfNeeded() {
   try {
-    const stats = await Response.collection.stats();
+    const db = mongoose.connection.db; // Get native MongoDB connection
+    const stats = await db.command({ collStats: "responses" }); // Use native command
     const usedMB = stats.storageSize / (1024 * 1024);
 
     console.log("📦 Current Response Collection Size:", usedMB.toFixed(2), "MB");

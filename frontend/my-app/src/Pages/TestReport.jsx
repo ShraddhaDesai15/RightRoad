@@ -1,4 +1,3 @@
-// src/Pages/TestReport.jsx
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import ProgressTracker from "../components/Progresstracker";
@@ -22,23 +21,34 @@ const TestReport = () => {
     return Math.round((score / total) * 100);
   };
 
-  console.log("📊 Stream Scores:", scores);
+  const isArray = Array.isArray(recommendedStream);
+  const isUnattempted = recommendedStream === "Please attempt the test.";
 
   return (
     <div className="report-container">
       <h1>🎓 Your Career Test Report</h1>
 
-      {/* Highlighted Box for Recommended Stream */}
-      <div className="stream-box">
-        <strong>Recommended Stream:</strong>
-        <div className="highlight-stream">{recommendedStream}</div>
-      </div>
+      {/* 🔶 Special Message if test not attempted */}
+      {isUnattempted ? (
+        <div className="warning-box">
+          ⚠️ You have not attempted the test completely.<br />
+          That's why there was an error while evaluating the test.<br />
+          <strong>Please attempt the test completely.</strong>
+        </div>
+      ) : (
+        // ✅ Recommended Stream(s) Section
+        <div className="stream-box">
+          <strong>Recommended Stream{isArray ? "s" : ""}:</strong>
+          <div className="highlight-stream">
+            {isArray ? recommendedStream.join(", ") : recommendedStream}
+          </div>
+        </div>
+      )}
 
-      {/* Progress Bars */}
+      {/* 📊 Progress Bars */}
       <div className="progress-section">
         {Object.entries(scores).map(([stream, score]) => {
           const percent = getPercentage(score);
-          console.log(`🔹 ${stream}: ${score} pts (${percent}%)`);
           return (
             <ProgressTracker
               key={stream}
