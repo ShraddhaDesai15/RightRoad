@@ -48,6 +48,8 @@ RightRoad/
 └── ...
 
 ---
+⚠️ Early commits include mistakenly added build files; cleaned up in later commits.
+---
 
 ## 🚀 How to Run the Project Locally
 
