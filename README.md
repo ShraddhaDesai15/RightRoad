@@ -90,3 +90,10 @@ MONGODB_URI=your_mongodb_connection_string
 Start backend server:
 nodemon server.js
 (If nodemon is not installed globally, run npm install -g nodemon)
+
+
+To download your Result PDF
+npm install html2pdf.js
+
+To use the @fortawesome icons you're importing, you need to install the following Font Awesome packages via npm
+npm install @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/free-brands-svg-icons @fortawesome/react-fontawesome
