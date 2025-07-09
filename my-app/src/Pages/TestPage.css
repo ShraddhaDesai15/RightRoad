@@ -1,0 +1,331 @@
+.testpage-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  /* background-image: url('/images/omr.jpg'); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+body.dark-mode .testpage-container {
+  /* background-image: url('/images/omr-dark.jpg'); Replace with a dark-mode image */
+  /* OR use a dark gradient background if no image is available */
+  /* background: linear-gradient(to right, #0f2027, #203a43, #2c5364); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* -------- Sidebar -------- */
+.sidebar {
+  width: 220px;
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  padding: 16px;
+  overflow-y: auto;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+body.dark-mode .sidebar {
+  background-color: #111;
+  color: #00ffee;
+  border-right: 1px solid #00ffee44;
+  box-shadow: 2px 0 8px rgba(0, 255, 255, 0.1);
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: inherit;
+  border-bottom: 1px solid #ccc;
+}
+
+body.dark-mode .sidebar h2 {
+  border-bottom: 1px solid #00ffee;
+}
+
+/* -------- Question Numbers -------- */
+.question-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.question-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  font-weight: bold;
+  background-color: #eee;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.question-num:hover {
+  background-color: #ccc;
+}
+
+.question-num.answered {
+  background-color: #000000;
+  color: white;
+}
+
+body.dark-mode .question-num {
+  background-color: #222;
+  color: #000000;
+  border: 1px solid #00ffee;
+}
+
+body.dark-mode .question-num:hover {
+  background-color: #00ffee;
+  color: #fe0101;
+}
+
+body.dark-mode .question-num.answered {
+  background-color: #00ffee;
+  color: #0153f8;
+  box-shadow: 0 0 6px rgba(0, 255, 255, 0.6);
+}
+
+/* -------- Timer -------- */
+.timer {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #d9534f;
+}
+
+body.dark-mode .timer {
+  background-color: #00ffee;
+  color: #000;
+  padding: 6px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+/* -------- Main Area -------- */
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  padding: 20px;
+  /* background-color: #f9f9f9; */
+}
+
+body.dark-mode .main-area {
+  background-color: #ffffff;
+  color: #00ffee;
+}
+
+.main-area h1 {
+  margin-bottom: 20px;
+}
+
+body.dark-mode .main-area h1 {
+  color: #000000;
+}
+/* Force light styles for selected buttons in dark mode */
+body.dark-mode .force-light-mode .option-button.selected {
+  background-color: #ffcccc !important;
+  color: #cc0000 !important;
+  border: 10px solid #1900ff !important;
+}
+
+
+/* -------- Question List -------- */
+.question-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  padding-left: 200px;
+}
+body.dark-mode .question-list * {
+  color: #000 !important;
+}
+
+/* -------- Pagination -------- */
+.pagination {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  border-top: 1px solid #ccc;
+}
+
+body.dark-mode .pagination {
+  background-color: #111;
+  border-top: 1px solid #00ffee;
+}
+/* 🔹 Light Mode - Next Button */
+.next-btn {
+  padding: 10px 18px;
+  background-color: #007bff; /* Blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.next-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 🔸 Disabled State */
+.next-btn:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* 🌒 Dark Mode - Next Button */
+body.dark-mode .next-btn {
+  background-color: #00ffee;
+  color: #000;
+}
+
+body.dark-mode .next-btn:hover {
+  background-color: #00ccff;
+}
+
+body.dark-mode .next-btn:disabled {
+  background-color: #444;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* -------- Submit Buttons -------- */
+.submit-btn,
+.submit-btn-inline {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.submit-btn:disabled,
+.submit-btn-inline.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.submit-btn-inline {
+  padding: 8px 16px;
+  background-color: green;
+  color: white;
+}
+
+body.dark-mode .submit-btn,
+body.dark-mode .submit-btn-inline {
+  background-color: #00ffee;
+  color: #000;
+}
+
+body.dark-mode .submit-btn:hover,
+body.dark-mode .submit-btn-inline:hover {
+  background-color: #00ccff;
+}
+
+/* -------- Alert Modal -------- */
+.custom-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.custom-alert-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .custom-alert-box {
+  background: #000;
+  color: #00ffee;
+  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+}
+
+.custom-alert-box h2 {
+  margin-bottom: 10px;
+  color: #d9534f;
+}
+
+body.dark-mode .custom-alert-box h2 {
+  color: #00ffee;
+}
+
+.custom-alert-box p {
+  margin-bottom: 20px;
+}
+
+/* -------- Alert Buttons -------- */
+.alert-buttons button {
+  margin: 0 10px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.alert-buttons button:first-child {
+  background-color: #6c757d;
+  color: white;
+}
+
+.alert-buttons button:last-child {
+  background-color: #dc3545;
+  color: white;
+}
+
+body.dark-mode .alert-buttons button:first-child {
+  background-color: #00ffee;
+  color: #000;
+}
+
+body.dark-mode .alert-buttons button:last-child {
+  background-color: #ff4d4d;
+  color: #000;
+}
+/* Light Mode */
+.selected-option {
+  background-color: #b6fcb6; /* light green */
+  color: #000;
+  border: 2px solid #4CAF50;
+  font-weight: bold;
+}
+
+/* Dark Mode */
+body.dark-mode .selected-option {
+  background-color: #007f3f; /* dark green */
+  color: #fff;
+  border: 20px solid #000000;
+  font-weight: bold;
+}
