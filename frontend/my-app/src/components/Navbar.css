@@ -1,100 +1,252 @@
-/* Navbar container */
-.navbar { 
+/* ---------- Base Styles ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #003366;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+body.dark-mode {
+  background-color: #000000;
+  color: #00ffcc;
+}
+
+/* ---------- Navbar Container ---------- */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  position: fixed;
+  padding: 18px 40px;
+  background: linear-gradient(to right, #e0f0ff, #ffffff);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
   top: 0;
-  height: 100px;
-  width: 100%;
   z-index: 1000;
-  transition: background-color 0.3s ease;
 }
 
-/* Logo container */
-.logo-container {
+body.dark-mode .navbar {
+  background: linear-gradient(to right, #000000, #001111);
+  box-shadow: 0 0 18px rgba(0, 255, 200, 0.3);
+}
+
+/* ---------- Logo & Title ---------- */
+.logo-title {
   display: flex;
   align-items: center;
-  height: 100px;
-  width: auto;
-  margin-left: 0;
-  padding-left: 0;
+  gap: 12px;
 }
 
-/* Prevent video logo from being interactive */
 .nav-logo {
+  width: 100px;
   height: 100px;
-  width: 200px; /* Expand horizontally */
   object-fit: cover;
+  border-radius: 8px;
+  pointer-events: none;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.25);
+}
+
+body.dark-mode .nav-logo {
+  box-shadow: 0 2px 8px rgba(0, 255, 200, 0.35);
+}
+
+.site-title {
+  font-size: 65px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #1e90ff, #00008b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+body.dark-mode .site-title {
+  background: linear-gradient(90deg, #39ff14, #00ffcc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Theme Toggle & Hamburger Button ---------- */
+.theme-toggle-button,
+.hamburger {
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
   border: none;
-  pointer-events: none; /* 🔒 Prevents clicking / dragging */
-  margin: 0;
-  padding: 0;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #003366;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
 }
 
-/* Dark mode navbar */
-body.dark-theme .navbar {
-   background-color: #080216;
-  box-shadow: 0 2px 10px rgba(0, 255, 150, 0.2);
+.theme-toggle-button:hover,
+.hamburger:hover {
+  transform: scale(1.1);
 }
 
-/* Padding for section under navbar */
-#home {
-  padding-top: 120px;
+body.dark-mode .theme-toggle-button,
+body.dark-mode .hamburger {
+  color: #00ffee;
 }
 
-/* Navigation links */
+/* ---------- Navigation Links ---------- */
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 28px;
   align-items: center;
-  padding-right: 50px;
-  margin-right: 40px;
 }
 
 .nav-link {
+  font-size: 24px;
+  font-weight: 600;
+  color: #003366;
   text-decoration: none;
-  font-weight: 500;
-  color: #333;
-  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #007BFF;
+  transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-  color: #007BFF;
+  color: #0056b3;
 }
 
-/* Dark theme nav links */
-body.dark-theme .nav-link {
-  color: #ccefff;
+.nav-link:hover::after {
+  width: 100%;
 }
 
-body.dark-theme .nav-link:hover {
-  color: #00ff99;
+body.dark-mode .nav-link {
+  color: #00ffee;
 }
 
-/* Start Test button */
+body.dark-mode .nav-link::after {
+  background: #00ffee;
+}
+
+/* ---------- Take Test Button ---------- */
 .test-button {
-  padding: 8px 16px;
+  padding: 6px 16px;
   background-color: #007BFF;
   color: white !important;
   border-radius: 6px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
+  font-size: 20px;
+  font-weight: 700;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .test-button:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
 }
 
-body.dark-theme .test-button {
-  background-color: #00ff99;
+body.dark-mode .test-button {
+  background-color: #00ffee;
   color: #000 !important;
 }
 
-body.dark-theme .test-button:hover {
-  background-color: #00cc88;
+/* ---------- Right Controls Wrapper ---------- */
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ---------- Mobile View ---------- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .logo-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 8px 12px;
+    position: relative;
+  }
+
+  .nav-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .site-title {
+    font-size: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  .right-controls {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    display: flex;
+    gap: 8px;
+  }
+
+  .theme-toggle-button,
+  .hamburger {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 0;
+  }
+
+  body.dark-mode .nav-links {
+    background-color: #000;
+  }
+}
+
+/* ---------- Desktop View: Hide Hamburger & Align Toggle Right ---------- */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none;
+  }
+
+  .right-controls {
+    margin-left: auto;
+    position: static;
+  }
 }

@@ -10,7 +10,13 @@ import Form from './Pages/Auth/Form';
 
 function AppWrapper() {
   const location = useLocation();
-
+  
+  // let [best,setBest] = useState(localStorage.getItem("best") ||0);
+  // function changeTheme()
+  // {
+  //     setDarkMode((prev)=>!prev);
+  // }
+ 
   return (
     <div className="all">
       {/* Hide Navbar on /test route */}

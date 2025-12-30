@@ -1,62 +1,118 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
 .testpage-container {
   display: flex;
   height: 100vh;
   overflow: hidden;
+  background-color: #f5f7fa;
+}
+
+.submit-btn-inline,
+.pagination button {
+  width: 140px;
+  height: 44px;
+  padding: 12px 0;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.submit-btn-inline:hover,
+.pagination button:hover {
+  background-color: #218838;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .sidebar {
-  width: 220px;
-  background-color: #fff;
-  border-right: 1px solid #ccc;
-  padding: 16px;
-  overflow-y: auto;
-  height: 100vh;
-  position: sticky;
-  top: 0;
+  width: 240px;                          /* Sidebar width */
+  background-color: #ffffff;            /* White background */
+  border-right: 1px solid #ddd;         /* Light grey border on the right */
+  padding: 20px 16px;                   /* Padding: 20px top/bottom, 16px left/right */
+  overflow-y: auto;                     /* Scrollbar appears if vertical content overflows */
+  height: 100vh;                        /* Full viewport height */
+  position: sticky;                     /* Sticks to top when scrolling */
+  top: 0;                               /* Sticky position starts from top */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05); /* Light shadow on the right for depth */
+}
+ .sidebar.open {
+    transform: translateX(0);
+  }
+.sidebar h2 {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: #333;
 }
 
-.question-nav {
+.question-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   margin-bottom: 20px;
 }
 
 .question-num {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  border: none;
+  border: 2px solid #ccc;
+  background-color: #f1f1f1;
+  color: #333;
   font-weight: bold;
-  background-color: #eee;
   cursor: pointer;
+  transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-num:hover {
+  background-color: #ddd;
 }
 
 .question-num.answered {
-  background-color: #4CAF50;
+  background-color: #007bff;
   color: white;
+  border-color: #007bff;
 }
 
 .timer {
-  margin-top: 20px;
-  font-weight: bold;
+  margin-top: 24px;
+  font-weight: 600;
   color: #d9534f;
+  font-size: 1rem;
 }
 
 .submit-btn {
   width: 100%;
-  padding: 10px;
-  background-color: #007bff;
+  margin-top: 24px;
+  padding: 12px;
+  background-color: #28a745;
   color: white;
+  font-weight: bold;
   border: none;
-  margin-top: 20px;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.submit-btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+.submit-btn:hover {
+  background-color: #218838;
 }
 
 .main-area {
@@ -66,49 +122,33 @@
   height: 100vh;
   overflow: hidden;
   padding: 20px;
-
-}
-
-.main-area h1 {
-  margin-bottom: 20px;
 }
 
 .question-list {
   flex: 1;
   overflow-y: auto;
-  padding-right: 10px;
-    padding-left: 200px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .pagination {
   padding: 16px;
   display: flex;
   justify-content: space-between;
-  background: white;
+  background: #fff;
   border-top: 1px solid #ccc;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.03);
 }
 
-.submit-btn-inline {
-  padding: 8px 16px;
-  background-color: green;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-
-.submit-btn-inline.disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* Custom Alert Modal */
 .custom-alert-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,30 +157,45 @@
 
 .custom-alert-box {
   background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  max-width: 400px;
+  padding: 30px 24px;
+  border-radius: 12px;
+  max-width: 420px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .custom-alert-box h2 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   color: #d9534f;
+  font-size: 1.3rem;
 }
 
 .custom-alert-box p {
   margin-bottom: 20px;
+  color: #333;
+  font-size: 1rem;
+}
+
+.alert-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
 .alert-buttons button {
-  margin: 0 10px;
   padding: 10px 16px;
   border: none;
-  border-radius: 5px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.2s;
+  font-size: 16px;
+  width: 140px;        /* fixed width for equal size */
+  text-align: center;
+  box-sizing: border-box;
 }
+
+
 
 .alert-buttons button:first-child {
   background-color: #6c757d;
@@ -150,4 +205,54 @@
 .alert-buttons button:last-child {
   background-color: #dc3545;
   color: white;
+}
+
+.alert-buttons button:hover {
+  opacity: 0.9;
+}
+/* Show hamburger button on mobile */
+.hamburger {
+  display: none; /* Hide by default for larger screens */
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1100; /* Higher than sidebar */
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .hamburger:hover {
+    background: #0056b3;
+  }
+
+  /* Sidebar hidden by default on mobile */
+  .sidebar {
+    width: 220px;
+    position: fixed;
+    left: -220px; /* Hidden */
+    top: 0;
+    height: 100%;
+    background-color: #ffffff;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    left: 0; /* Slide in */
+  }
+
+  .main-area {
+    margin-top: 50px; /* Space for fixed hamburger */
+  }
 }
